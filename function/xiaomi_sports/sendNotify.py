@@ -66,13 +66,13 @@ class sendNotify:
     # go-cqhttp
     # 推送到个人QQ: http://127.0.0.1/send_private_msg
     # 群: http://127.0.0.1/send_group_msg
-    GOBOT_URL: ''
+    GOBOT_URL = ''
     # go-cqhttp 的推送群或用户
     # GOBOT_URL 设置 /send_private_msg 时填入 user_id=个人QQ
     # /send_group_msg   时填入 group_id=QQ群
-    GOBOT_QQ: ''
+    GOBOT_QQ = ''
     # go-cqhttp 的 access_token
-    GOBOT_TOKEN: ''
+    GOBOT_TOKEN = ''
 
     # Server酱
     if os.environ['PUSH_KEY'] != "":
