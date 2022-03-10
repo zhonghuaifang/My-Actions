@@ -66,13 +66,13 @@ class sendNotify:
     # go-cqhttp
     # 推送到个人QQ: http://127.0.0.1/send_private_msg
     # 群: http://127.0.0.1/send_group_msg
-    GOBOT_URL: 'http://cqhttp.huaifang.top/send_private_msg'
+    GOBOT_URL: ''
     # go-cqhttp 的推送群或用户
     # GOBOT_URL 设置 /send_private_msg 时填入 user_id=个人QQ
     # /send_group_msg   时填入 group_id=QQ群
-    GOBOT_QQ: 'user_id=1459550455'
+    GOBOT_QQ: ''
     # go-cqhttp 的 access_token
-    GOBOT_TOKEN: 'AwWCbD_1zZNZTlJ'
+    GOBOT_TOKEN: ''
 
     # Server酱
     if os.environ['PUSH_KEY'] != "":
@@ -118,6 +118,14 @@ class sendNotify:
         PUSH_PLUS_TOKEN = os.environ['PUSH_PLUS_TOKEN']
     if os.environ['PUSH_PLUS_USER'] != "":
         PUSH_PLUS_USER = os.environ['PUSH_PLUS_USER']
+
+    # go-cqhttp
+    if os.environ['GOBOT_URL'] != "":
+        GOBOT_URL = os.environ['GOBOT_URL']
+    if os.environ['GOBOT_QQ'] != "":
+        GOBOT_QQ = os.environ['GOBOT_QQ']
+    if os.environ['GOBOT_TOKEN'] != "":
+        GOBOT_TOKEN = os.environ['GOBOT_TOKEN']
 
     def serverNotify(self, text, desp):
         if sendNotify.SCKEY != '':
@@ -295,12 +303,12 @@ class sendNotify:
         """
         使用 go_cqhttp 推送消息。
         """
-        if not os.environ("GOBOT_URL") or not os.environ("GOBOT_QQ") or not os.environ("GOBOT_TOKEN"):
+        if not sendNotify.GOBOT_URL or not sendNotify.GOBOT_QQ or not sendNotify.GOBOT_TOKEN:
             print("go-cqhttp 服务的 GOBOT_URL 或 GOBOT_QQ 或 GOBOT_TOKEN 未设置!!\n取消推送")
             return
         print("go-cqhttp 服务启动")
 
-        url = f'{os.environ("GOBOT_URL")}?access_token={os.environ("GOBOT_TOKEN")}&{os.environ("GOBOT_QQ")}&message=标题:{title}\n内容:{content}'
+        url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&{sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
 
         try:
             response = requests.get(url, timeout=15)
