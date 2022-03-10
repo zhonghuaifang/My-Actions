@@ -327,6 +327,7 @@ class sendNotify:
         send.dingNotify(title, msg)
         send.pushNotify(title, msg)
         send.sendWechat(msg)
+        send.go_cqhttp(title, msg)
         # send.coolpush(title,msg)
 
 # if __name__ == "__main__":
