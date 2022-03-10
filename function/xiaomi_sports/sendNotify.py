@@ -299,7 +299,7 @@ class sendNotify:
             pass
 
     # go_cqhttp推送
-    def go_cqhttp(title, content):
+    def go_cqhttp(self, title, content):
         """
         使用 go_cqhttp 推送消息。
         """
