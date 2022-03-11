@@ -18,7 +18,7 @@ async function downFile () {
     await download(url, './')
 }
 
-async function changeFiele (onePhone) {
+async function changeFiele () {
     let content = await fs.readFileSync('./10000.js', 'utf8')
     //替换各种无用信息.
     content = content.replace("\"\\n\"", "\"\"")
@@ -27,7 +27,7 @@ async function changeFiele (onePhone) {
     content = content.replace("\\ud83d\\udd14${this.name}, \\u5f00\\u59cb!", ``)
     content = content.replace("\\ud83d\\udd14${this.name}, \\u7ed3\\u675f! \\ud83d\\udd5b ${e} \\u79d2", ``)
 
-    content = content.replace("const phonedat = $.getdata($.KEY_mobile)", `const phonedat = '${onePhone}'`)
+    content = content.replace("const phonedat = $.getdata($.KEY_mobile)", `const phonedat = '${KEY}'`)
     await fs.writeFileSync( './10000.js', content, 'utf8')
 }
 
@@ -46,36 +46,32 @@ async function start() {
         console.log('请填写电信号码后再继续')
         return
     }
-    var KEYArray = KEY.split('&');
-    for (var i = 0; i < KEYArray.length; i++) {
-        if (!KEYArray[i]) continue;
-        // 下载最新代码
-        await downFile();
-        console.log('下载代码完毕')
-        // 替换变量
-        await changeFiele(KEYArray[i]);
-        console.log('替换变量完毕')
-        // 执行
-        await exec("node 10000.js >> result.txt");
-        console.log('执行完毕')
-        const path = "./result.txt";
-        let content = "";
-        if (fs.existsSync(path)) {
-            content = fs.readFileSync(path, "utf8");
-        }
-
-        if (content.includes("签到成功") | content.includes("已签到")) {
-            await notify.sendNotify("电信签到-" + timeFormat(UTC8), content);
-            console.log("电信签到-" + content)
-        }else{
-            await notify.sendNotify("中国电信签到-" + timeFormat(UTC8), content);
-            console.log("中国电信签到-" + content)
-        }
-
-        //运行完成后，删除下载的文件
-        console.log('运行完成后，删除下载的文件\n')
-        await deleteFile(path);
+    // 下载最新代码
+    await downFile();
+    console.log('下载代码完毕')
+    // 替换变量
+    await changeFiele();
+    console.log('替换变量完毕')
+    // 执行
+    await exec("node 10000.js >> result.txt");
+    console.log('执行完毕')
+    const path = "./result.txt";
+    let content = "";
+    if (fs.existsSync(path)) {
+        content = fs.readFileSync(path, "utf8");
     }
+
+    if (content.includes("签到成功") | content.includes("已签到")) {
+        console.log("电信签到-" + content)
+    }else{
+        await notify.sendNotify("中国电信签到-" + timeFormat(UTC8), content);
+        console.log("中国电信签到-" + content)
+    }
+
+    //运行完成后，删除下载的文件
+    console.log('运行完成后，删除下载的文件\n')
+    await deleteFile(path);
+
 }
 
 start()
