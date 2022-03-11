@@ -53,7 +53,7 @@ async function start() {
         await downFile();
         console.log('下载代码完毕')
         // 替换变量
-        await changeFiele(onePhone);
+        await changeFiele(KEYArray[i]);
         console.log('替换变量完毕')
         // 执行
         await exec("node 10000.js >> result.txt");
