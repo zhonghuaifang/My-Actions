@@ -9,6 +9,9 @@ import time
 from urllib.parse import quote
 import requests
 
+# 设置中国时区+8
+os.environ['TZ'] = 'UTC-08CN'
+
 sys.path.append("My-Actions/function/xiaomi-Android")
 from sendNotify import *
 
