@@ -4,6 +4,11 @@
 import random
 import re
 import sys
+import os
+
+# 设置中国时区+8
+os.environ['TZ'] = 'UTC-08CN'
+time.tzset()
 
 sys.path.append("My-Actions/function/wps")
 from sendNotify import *
