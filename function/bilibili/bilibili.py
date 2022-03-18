@@ -3,6 +3,11 @@ import sys
 sys.path.append("My-Actions/function/bilibili/")
 from bilibiliapi import *
 from sendNotify import *
+import os
+
+# 设置中国时区+8
+os.environ['TZ'] = 'UTC-08CN'
+time.tzset()
 
 sendNotify = sendNotify()
 SEND_KEY = os.environ['SEND_KEY']
