@@ -3,7 +3,7 @@ name: 小米自动刷步数
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 20 * * *"
+    - cron: "05 0 * * *"
   watch:
     types: [started]
 
