@@ -12,6 +12,7 @@ import os
 
 # 设置中国时区+8
 os.environ['TZ'] = 'UTC-09CN'
+time.tzset()
 
 sys.path.append("My-Actions/function/xiaomi-Android")
 from sendNotify import *
