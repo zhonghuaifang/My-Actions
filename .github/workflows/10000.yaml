@@ -1,47 +1,48 @@
 name: 中国电信签到
 
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: "0 */8 * * *"
-#电信经常签到不成功所以让他每八小时执行一下,一天三次
-    watch:
-        types: [started]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */8 * * *'
+  #电信经常签到不成功所以让他每八小时执行一下,一天三次
+  watch:
+    types: [started]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        if: github.event.repository.owner.id == github.event.sender.id
-        steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js 10.x
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 10.x
-            - name: npm install
-              run: |
-                  npm install
-            - name: "运行【中国电信签到】"
-              run: |
-                  node function/10000/10000.js
-              env:
-                  TELECOM_MOBILE: ${{ secrets.TELECOM_MOBILE }}
-                  SEND_KEY: ${{ secrets.SEND_KEY }}
-                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
-                  BARK_PUSH: ${{ secrets.BARK_PUSH }}
-                  PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN}}
-                  PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER}}
-                  QYWX_AM: ${{ secrets.QYWX_AM}}
-                  QYWX_KEY: ${{ secrets.QYWX_KEY}}
-                  TG_PROXY_HOST: ${{ secrets.TG_PROXY_HOST}}
-                  TG_PROXY_PORT: ${{ secrets.TG_PROXY_PORT}}
-                  IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY}}
-                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
-                  BARK_SOUND: ${{ secrets.BARK_SOUND }}
-                  DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
-                  DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
-                  GOBOT_URL: ${{ secrets.GOBOT_URL }}
-                  GOBOT_QQ: ${{ secrets.GOBOT_QQ }}
-                  GOBOT_TOKEN: ${{ secrets.GOBOT_TOKEN}}
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行【中国电信签到】'
+        run: |
+          node function/10000/10000.js
+        env:
+          TELECOM_MOBILE: ${{ secrets.TELECOM_MOBILE }}
+          SEND_KEY: ${{ secrets.SEND_KEY }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN}}
+          PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER}}
+          QYWX_AM: ${{ secrets.QYWX_AM}}
+          QYWX_KEY: ${{ secrets.QYWX_KEY}}
+          TG_PROXY_HOST: ${{ secrets.TG_PROXY_HOST}}
+          TG_PROXY_PORT: ${{ secrets.TG_PROXY_PORT}}
+          IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY}}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          BARK_SOUND: ${{ secrets.BARK_SOUND }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+          GOBOT_URL: ${{ secrets.GOBOT_URL }}
+          GOBOT_QQ: ${{ secrets.GOBOT_QQ }}
+          GOBOT_TOKEN: ${{ secrets.GOBOT_TOKEN}}
+          OS_TZ: ${{ secrets.OS_TZ }}
 #最后推送 2021年4月09日

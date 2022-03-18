@@ -6,8 +6,9 @@ from sendNotify import *
 import os
 
 # 设置中国时区+8
-os.environ['TZ'] = 'UTC-08CN'
-time.tzset()
+if os.environ['OS_TZ']:
+    os.environ['TZ'] = 'UTC'+str(-int(os.environ['OS_TZ']))+'CN'
+    time.tzset()
 
 sendNotify = sendNotify()
 SEND_KEY = os.environ['SEND_KEY']

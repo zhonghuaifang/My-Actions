@@ -41,4 +41,5 @@ jobs:
           GOBOT_URL: ${{ secrets.GOBOT_URL }}
           GOBOT_QQ: ${{ secrets.GOBOT_QQ }}
           GOBOT_TOKEN: ${{ secrets.GOBOT_TOKEN}}
+          OS_TZ: ${{ secrets.OS_TZ }}
 #最后推送 2021年4月22日
