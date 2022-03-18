@@ -14,6 +14,9 @@ import os
 if os.environ['OS_TZ']:
     os.environ['TZ'] = 'UTC'+str(-int(os.environ['OS_TZ']))+'CN'
     time.tzset()
+else:
+    os.environ['TZ'] = 'UTC-8CN'
+    time.tzset()
 
 sys.path.append("My-Actions/function/xiaomi-Android")
 from sendNotify import *

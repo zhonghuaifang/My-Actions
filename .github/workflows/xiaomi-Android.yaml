@@ -3,7 +3,7 @@ name: 小米自动刷步数-Android
 on:
   workflow_dispatch:
   schedule:
-    - cron: "05 0 * * *"
+    - cron: '05 20 * * *'
   watch:
     types: [started]
 
@@ -15,15 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: "Set up Python"
+      - name: 'Set up Python'
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
 
-      - name: "安装依赖包"
+      - name: '安装依赖包'
         run: pip install -r ./requirements.txt
 
-      - name: "运行 小米自动刷步数"
+      - name: '运行 小米自动刷步数'
         run: python3 function/xiaomi_sports/xiaomi-Android.py
         env:
           Xiaomi_User: ${{ secrets.Xiaomi_User }}

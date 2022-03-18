@@ -13,7 +13,7 @@
 
 目前自用‘贴吧签到’，‘bilibil 签到’，‘小米运动’，‘电信签到’，其他自测
 
-尝试修改代码中的时区，变量设置‘OS_TZ’为时区数，例如中国设置‘8’为+8 区，默认 UTC 0（小米运动和哔哩哔哩签到可能需要，目前只添加了这两个自定义时区）
+尝试修改代码中的时区，变量设置‘OS_TZ’为时区数，例如中国设置‘8’为+8 区，默认 UTC +8（小米运动和哔哩哔哩签到可能需要，目前只添加了这两个自定义时区）
 
 ### 2022.3.17
 
@@ -45,27 +45,27 @@
 
 ##### Cookie 变量设置 Secrets:\*\*
 
-| 名称             | 内容                      | 说明                                                                                                                                                         |
-| ---------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `PAT`            | 自动同步**必须设置**      | 利用 Github Actions 自动同步上游仓库或新建仓库[PAT 获取教程](RepoSync.md)                                                                                    |
-| `IQIYI_COOKIE`   | 爱奇艺 authcookie         | P00001 的值 详情[文字教程](https://www.bilibili.com/read/cv7437179) [视频教程](https://www.bilibili.com/video/BV1B541157DE) 电脑版有效期三个月               |
-| `Xiaomi_User`    | 小米运动账号              | 小米运动账号,多账号请用#分割 例如：13800138000#13800138001                                                                                                   |
-| `Xiaomi_Pw`      | 小米运动密码              | 小米运动密码,多账号请用#分割 例如：abc123qwe#abcqwe2                                                                                                         |
-| `Xiaomi_Bs`      | 小米运动步数              | 默认为 1w-2w 之间随机 或自定义随机范围`[18000-25000]`                                                                                                        |
-| `BILI_USER`      | 哔哩哔哩账号              | B 站账号                                                                                                                                                     |
-| `BILI_PASS`      | 哔哩哔哩密码              | B 站密码                                                                                                                                                     |
-| `BILI_COOKIE`    | 哔哩哔哩 COOKIE`(非必填)` | 哔哩哔哩 COOKIE,如果账号密码无法登陆就用 COOKIE,等一段时间再用账号密码即可.                                                                                  |
-| `BILI_NUM`       | 哔哩哔哩每日投币数量      | 每日投币数量`可不填`默认 0 不投币                                                                                                                            |
-| `BILI_TYPE`      | 哔哩哔哩每日投币方式      | 投币方式`可不填`默认 1,只给关注的人投币 0 则随机投币                                                                                                         |
-| `BIKA_USER`      | 哔咔漫画用户名            | 哔咔漫画用户名                                                                                                                                               |
-| `BIKA_PASS`      | 哔咔漫画密码              | 哔咔漫画密码                                                                                                                                                 |
-| `WPS_KEY`        | WPS_SID                   | WPS `COOKIE`中的 wps_sid,只要不注销,10 年过期                                                                                                                |
-| `V_REF_URL`      | 腾讯视频 Request URL      | 电脑端搜索 auth_refresh 复制整段 Request url[图片教程](https://cdn.jsdelivr.net/gh/BlueskyClouds/BlueskyClouds.github.io/2020/11/1/img/v_1.jpg)              |
-| `V_COOKIE`       | 腾讯视频 Cookie           | 电脑端搜索 auth_refresh 复制 Cookie[图片教程](https://cdn.jsdelivr.net/gh/BlueskyClouds/BlueskyClouds.github.io/2020/11/1/img/v_2.jpg)                       |
-| `TELECOM_MOBILE` | 中国电信手机号            | 只需要手机号 单账号 `多账号将会暴露手机号` 自行考虑,多账号使用`,`分割 部分地区或手机号暂无法签到，自行测试使用                                               |
-| `V2EXCK`         | V2EX 的 Cookie            | V2EX 的 Cookie                                                                                                                                               |
-| `BDUSS`          | 百度 BDUSS                | BDUSS 值切勿使用双击复制 (结尾有一个`符号`双击复制可能无法复制完整)                                                                                          |
-| `OS_TZ`          | 时区（自定义代码中时区）  | 小米运动和哔哩哔哩可能需要设置，不然上传可能不生效，国内设置`8`为+8 时区（此处为代码中的时区设置，脚本运行请参考上方【定时执行说明】，定时执行时区不可能改） |
+| 名称             | 内容                      | 说明                                                                                                                                                                  |
+| ---------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PAT`            | 自动同步**必须设置**      | 利用 Github Actions 自动同步上游仓库或新建仓库[PAT 获取教程](RepoSync.md)                                                                                             |
+| `IQIYI_COOKIE`   | 爱奇艺 authcookie         | P00001 的值 详情[文字教程](https://www.bilibili.com/read/cv7437179) [视频教程](https://www.bilibili.com/video/BV1B541157DE) 电脑版有效期三个月                        |
+| `Xiaomi_User`    | 小米运动账号              | 小米运动账号,多账号请用#分割 例如：13800138000#13800138001                                                                                                            |
+| `Xiaomi_Pw`      | 小米运动密码              | 小米运动密码,多账号请用#分割 例如：abc123qwe#abcqwe2                                                                                                                  |
+| `Xiaomi_Bs`      | 小米运动步数              | 默认为 1w-2w 之间随机 或自定义随机范围`[18000-25000]`                                                                                                                 |
+| `BILI_USER`      | 哔哩哔哩账号              | B 站账号                                                                                                                                                              |
+| `BILI_PASS`      | 哔哩哔哩密码              | B 站密码                                                                                                                                                              |
+| `BILI_COOKIE`    | 哔哩哔哩 COOKIE`(非必填)` | 哔哩哔哩 COOKIE,如果账号密码无法登陆就用 COOKIE,等一段时间再用账号密码即可.                                                                                           |
+| `BILI_NUM`       | 哔哩哔哩每日投币数量      | 每日投币数量`可不填`默认 0 不投币                                                                                                                                     |
+| `BILI_TYPE`      | 哔哩哔哩每日投币方式      | 投币方式`可不填`默认 1,只给关注的人投币 0 则随机投币                                                                                                                  |
+| `BIKA_USER`      | 哔咔漫画用户名            | 哔咔漫画用户名                                                                                                                                                        |
+| `BIKA_PASS`      | 哔咔漫画密码              | 哔咔漫画密码                                                                                                                                                          |
+| `WPS_KEY`        | WPS_SID                   | WPS `COOKIE`中的 wps_sid,只要不注销,10 年过期                                                                                                                         |
+| `V_REF_URL`      | 腾讯视频 Request URL      | 电脑端搜索 auth_refresh 复制整段 Request url[图片教程](https://cdn.jsdelivr.net/gh/BlueskyClouds/BlueskyClouds.github.io/2020/11/1/img/v_1.jpg)                       |
+| `V_COOKIE`       | 腾讯视频 Cookie           | 电脑端搜索 auth_refresh 复制 Cookie[图片教程](https://cdn.jsdelivr.net/gh/BlueskyClouds/BlueskyClouds.github.io/2020/11/1/img/v_2.jpg)                                |
+| `TELECOM_MOBILE` | 中国电信手机号            | 只需要手机号 单账号 `多账号将会暴露手机号` 自行考虑,多账号使用`,`分割 部分地区或手机号暂无法签到，自行测试使用                                                        |
+| `V2EXCK`         | V2EX 的 Cookie            | V2EX 的 Cookie                                                                                                                                                        |
+| `BDUSS`          | 百度 BDUSS                | BDUSS 值切勿使用双击复制 (结尾有一个`符号`双击复制可能无法复制完整)                                                                                                   |
+| `OS_TZ`          | 时区（自定义代码中时区）  | 默认`8`，小米运动和哔哩哔哩可能需要设置，不然上传可能不生效，国内设置`8`为+8 时区（此处为代码中的时区设置，脚本运行请参考上方【定时执行说明】，定时执行时区不可能改） |
 
 ##### 推送通知环境变量(目前提供`微信server酱`、`pushplus(推送加)`、`iOS Bark APP`、`telegram机器人`、`钉钉机器人`、`企业微信机器人`、`iGot`等通知方式)
 
