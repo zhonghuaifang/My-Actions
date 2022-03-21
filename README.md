@@ -21,7 +21,7 @@
 
 个人收集并适配 Github Actions 的各类签到大杂烩
 
-(签到项目备份，自用，加入了 cqhttp 通知，修复 b 站签到报错)
+(签到项目备份，自用，加入了 cqhttp 通知，修复 b 站签到报错，原作者主页地址：https://github.com/BlueSkyClouds)
 
 ### 本项目已可以实现自动同步上游更改！[具体点击](#自动同步)
 
@@ -100,7 +100,7 @@
 
 ##### 方案 A - 强制远程分支覆盖自己的分支
 
-1. 参考[这里](https://github.com/BlueskyClouds/My-Actions/blob/master/backUp/gitSync.md)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
+1. 参考[这里](https://github.com/zhonghuaifang/My-Actions/blob/master/backUp/gitSync.md)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
 2. 确保.github/pull.yml 文件正常存在，yml 内上游作者填写正确(此项目已填好，无需更改)。
 3. 确保 pull.yml 里面是`mergeMethod: hardreset`(默认就是 hardreset)。
 4. ENJOY!上游更改三小时左右就会自动发起同步。
@@ -110,7 +110,7 @@
 > 上游变动后 pull 插件会自动发起 pr，但如果有冲突需要自行**手动**确认。
 > 如果上游更新涉及 workflow 里的文件内容改动，需要自行**手动**确认。
 
-1. 参考[这里](https://github.com/BlueskyClouds/My-Actions/blob/master/backUp/gitSync.md)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
+1. 参考[这里](https://github.com/zhonghuaifang/My-Actions/blob/master/backUp/gitSync.md)，安装[pull 插件](https://github.com/apps/pull)，并确认此项目已在 pull 插件的作用下（参考文中 1-d）。
 2. 确保.github/pull.yml 文件正常存在，yml 内上游作者填写正确(此项目已填好，无需更改)。
 3. 将 pull.yml 里面的`mergeMethod: hardreset`修改为`mergeMethod: merge`保存。
 4. ENJOY!上游更改三小时左右就会自动发起同步。
@@ -122,7 +122,7 @@
 
 ### 历史 Star 数
 
-[![Stargazers over time](https://starchart.cc/zhonghuaifang/BlueSkyClouds-My-Actions.svg)](https://starchart.cc/zhonghuaifang/BlueSkyClouds-My-Actions)
+[![Stargazers over time](https://starchart.cc/zhonghuaifang/My-Actions.svg)](https://starchart.cc/zhonghuaifang/My-Actions)
 
 ### 访问量
 
