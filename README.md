@@ -4,7 +4,7 @@
 <h1 align="center">My-Actions</h1>
 <img src="https://img.shields.io/github/issues/BlueskyClouds/My-Actions?color=green">
 <img src="https://img.shields.io/github/stars/BlueskyClouds/My-Actions?color=yellow">
-<img src="https://img.shields.io/github/forks/BlueskyClouds/My-Actions?color=orange">
+<img src="https://img.shields.io/github/forks/zhonghuaifang/BlueSkyClouds-My-Actions?color=orange">
 <img src="https://img.shields.io/github/license/BlueskyClouds/My-Actions?color=ff69b4">
 <img src="https://img.shields.io/github/languages/code-size/zhonghuaifang/BlueSkyClouds-My-Actions?color=blueviolet">
 </div>
