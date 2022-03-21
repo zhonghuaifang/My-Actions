@@ -1,12 +1,12 @@
-![BlueskyClouds’s github stats](https://github-readme-stats.vercel.app/api?username=BlueskyClouds&show_icons=true&theme=merko)
+![zhonghuaifang’s github stats](https://github-readme-stats.vercel.app/api?username=zhonghuaifang&show_icons=true&theme=merko)
 
 <div align="center">
 <h1 align="center">My-Actions</h1>
-<img src="https://img.shields.io/github/issues/BlueskyClouds/My-Actions?color=green">
-<img src="https://img.shields.io/github/stars/BlueskyClouds/My-Actions?color=yellow">
-<img src="https://img.shields.io/github/forks/BlueskyClouds/My-Actions?color=orange">
-<img src="https://img.shields.io/github/license/BlueskyClouds/My-Actions?color=ff69b4">
-<img src="https://img.shields.io/github/languages/code-size/BlueskyClouds/My-Actions?color=blueviolet">
+<img src="https://img.shields.io/github/issues/zhonghuaifang/My-Actions?color=green">
+<img src="https://img.shields.io/github/stars/zhonghuaifang/My-Actions?color=yellow">
+<img src="https://img.shields.io/github/forks/zhonghuaifang/My-Actions?color=orange">
+<img src="https://img.shields.io/github/license/zhonghuaifang/My-Actions?color=ff69b4">
+<img src="https://img.shields.io/github/languages/code-size/zhonghuaifang/My-Actions?color=blueviolet">
 </div>
 
 ### 2022.3.18
@@ -122,8 +122,8 @@
 
 ### 历史 Star 数
 
-![](https://starchart.cc/BlueskyClouds/My-Actions.svg)
+[![Stargazers over time](https://starchart.cc/zhonghuaifang/BlueSkyClouds-My-Actions.svg)](https://starchart.cc/zhonghuaifang/BlueSkyClouds-My-Actions)
 
 ### 访问量
 
-![](http://profile-counter.glitch.me/BlueSkyClouds/count.svg)
+![](https://profile-counter.glitch.me/zhonghuaifang/count.svg)
