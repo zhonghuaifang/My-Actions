@@ -120,12 +120,9 @@
 特别感谢 [JetBrains](https://www.jetbrains.com/?from=My-Actions) 为开源项目提供免费的 [WebStrom](https://www.jetbrains.com/?from=My-Actions) 等 IDE 的授权  
 [<img src="https://cdn.jsdelivr.net/gh/BlueskyClouds/BlueskyClouds.github.io/2020/12/1/img/idea/jetbrains.png" width="200"/>](https://www.jetbrains.com/?from=My-Actions)
 
-### 历史 Star 数
-
-## Stargazers over time
+## 历史 Star 数
 
 [![Stargazers over time](https://starchart.cc/zhonghuaifang/My-Actions.svg)](https://starchart.cc/zhonghuaifang/My-Actions)
-
 
 ### 访问量
 
