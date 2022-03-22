@@ -122,8 +122,7 @@
 
 ## 历史 Star 数
 
-![](https://starchart.cc/zhonghuaifang/My-Actions.svg)
-[![Stargazers over time](https://starchart.cc/zhonghuaifang/My-Actions.svg)](https://starchart.cc/zhonghuaifang/My-Actions.svg)
+[![Stargazers over time](https://starchart.cc/zhonghuaifang/My-Actions.svg)](https://starchart.cc/zhonghuaifang/My-Actions)
 
 ### 访问量
 
