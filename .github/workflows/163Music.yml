@@ -34,7 +34,7 @@ jobs:
       # 请将 config.json 中所有内容填入 secrets 中的 CONFIG 环境变量
       - name: Export Config
         env:
-          CONFIG: ${{ secrets.163CONFIG }}
+          CONFIG: ${{ secrets.CONFIG163 }}
         run: 
           echo "$CONFIG" > config.json
 
