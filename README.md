@@ -1,6 +1,5 @@
-<div align="center">
-![zhonghuaifang’s github stats](https://github-readme-stats.vercel.app/api?username=zhonghuaifang&show_icons=true&theme=merko)
-</div>
+![zhonghuaifang’s github stats](<div align="center">https://github-readme-stats.vercel.app/api?username=zhonghuaifang&show_icons=true&theme=merko</div>)
+
 <div align="center">
 <h1 align="center">My-Actions</h1>
 <img src="https://img.shields.io/github/issues/zhonghuaifang/My-Actions?color=8ab803">
