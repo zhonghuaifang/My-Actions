@@ -1,4 +1,4 @@
-![zhonghuaifang’s github stats](<div align="center">https://github-readme-stats.vercel.app/api?username=zhonghuaifang&show_icons=true&theme=merko</div>)
+![zhonghuaifang’s github stats](https://github-readme-stats.vercel.app/api?username=zhonghuaifang&show_icons=true&theme=merko)
 
 <div align="center">
 <h1 align="center">My-Actions</h1>
