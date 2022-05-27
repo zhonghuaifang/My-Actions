@@ -279,7 +279,7 @@ class BiliBiliCheckIn(object):
             print(live_msg)
             aid_list = self.get_region(session=session)
             reward_ret = self.reward(session=session)
-             print(reward_ret) # 取消本段输出
+            print(reward_ret) # 取消本段输出
             coins_av_count = reward_ret.get("data", {}).get("coins") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
