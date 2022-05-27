@@ -287,7 +287,7 @@ class BiliBiliCheckIn(object):
             print(live_msg)
             aid_list = self.get_region(session=session)
             coin_today_exp_ret = self.coin_today_exp(session=session)
-            print(reward_ret) # 取消本段输出
+            print(coin_today_exp_ret) # 取消本段输出
             coins_av_count = coin_today_exp_ret.get("data") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
