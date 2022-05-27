@@ -42,6 +42,14 @@ class BiliBiliCheckIn(object):
         url = "https://api.bilibili.com/x/member/web/exp/reward"
         ret = session.get(url=url).json()
         return ret
+    
+    @staticmethod
+    def coin_today_exp(session) -> dict:
+        """取B站硬币经验信息"""
+        # url = "https://account.bilibili.com/home/reward"
+        url = "https://api.bilibili.com/x/web-interface/coin/today/exp"
+        ret = session.get(url=url).json()
+        return ret
 
     @staticmethod
     def live_sign(session) -> dict:
@@ -264,7 +272,7 @@ class BiliBiliCheckIn(object):
         requests.utils.add_dict_to_cookiejar(session.cookies, bilibili_cookie)
         session.headers.update(
             {
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/63.0.3239.108",
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
                 "Referer": "https://www.bilibili.com/",
                 "Connection": "keep-alive",
             }
@@ -278,9 +286,9 @@ class BiliBiliCheckIn(object):
             live_msg = self.live_sign(session=session)
             print(live_msg)
             aid_list = self.get_region(session=session)
-            reward_ret = self.reward(session=session)
+            coin_today_exp_ret = self.coin_today_exp(session=session)
             print(reward_ret) # 取消本段输出
-            coins_av_count = reward_ret.get("data", {}).get("coins") // 10
+            coins_av_count = coin_today_exp_ret.get("data") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
             print(coin_num)
