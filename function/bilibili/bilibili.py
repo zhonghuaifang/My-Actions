@@ -294,9 +294,16 @@ class BiliBiliCheckIn(object):
             live_msg = self.live_sign(session=session)
             print(live_msg)
             aid_list = self.get_region(session=session)
-            self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=3)
+            vip_privilege_receive1 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=1)
+            print(vip_privilege_receive1)
+            vip_privilege_receive2 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=2)
+            print(vip_privilege_receive2)
+            vip_privilege_receive3 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=3)
+            print(vip_privilege_receive3)
+            vip_privilege_receive4 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=4)
+            print(vip_privilege_receive4)
             reward_ret = self.reward(session=session)
-            print(reward_ret) # 取消本段输出
+            # print(reward_ret) # 取消本段输出
             coins_av_count = reward_ret.get("data", {}).get("coins") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
