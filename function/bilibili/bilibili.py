@@ -38,7 +38,8 @@ class BiliBiliCheckIn(object):
     @staticmethod
     def reward(session) -> dict:
         """取B站经验信息"""
-        url = "https://account.bilibili.com/home/reward"
+        # url = "https://account.bilibili.com/home/reward"
+        url = "https://api.bilibili.com/x/member/web/exp/reward"
         ret = session.get(url=url).json()
         return ret
 
