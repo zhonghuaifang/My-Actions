@@ -280,7 +280,7 @@ class BiliBiliCheckIn(object):
             aid_list = self.get_region(session=session)
             reward_ret = self.reward(session=session)
             self.vip_privilege_receive(session=session,bili_jct=bili_jct)
-            self.vip_privilege_receive(session=session,bili_jct=bili_jct,2)
+            self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=2)
             # print(reward_ret) # 取消本段输出
             coins_av_count = reward_ret.get("data", {}).get("coins") // 10
             coin_num = coin_num - coins_av_count
