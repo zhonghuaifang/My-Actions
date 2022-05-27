@@ -302,6 +302,8 @@ class BiliBiliCheckIn(object):
             print(vip_privilege_receive3)
             vip_privilege_receive4 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=4)
             print(vip_privilege_receive4)
+            vip_privilege_receive5 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=5)
+            print(vip_privilege_receive5)
             reward_ret = self.reward(session=session)
             # print(reward_ret) # 取消本段输出
             coins_av_count = reward_ret.get("data", {}).get("coins") // 10
