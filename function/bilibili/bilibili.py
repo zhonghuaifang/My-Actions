@@ -46,10 +46,17 @@ class BiliBiliCheckIn(object):
     @staticmethod
     def coin_today_exp(session) -> dict:
         """取B站硬币经验信息"""
-        # url = "https://account.bilibili.com/home/reward"
         url = "https://api.bilibili.com/x/web-interface/coin/today/exp"
         ret = session.get(url=url).json()
         return ret
+    
+    @staticmethod
+    def vip_privilege_my(session) -> dict:
+        """取B站大会员硬币经验信息"""
+        url = "https://api.bilibili.com/x/vip/privilege/my"
+        ret = session.get(url=url).json()
+        return ret
+    
 
     @staticmethod
     def live_sign(session) -> dict:
@@ -294,16 +301,12 @@ class BiliBiliCheckIn(object):
             live_msg = self.live_sign(session=session)
             print(live_msg)
             aid_list = self.get_region(session=session)
-            vip_privilege_receive1 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=1)
-            print(vip_privilege_receive1)
-            vip_privilege_receive2 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=2)
-            print(vip_privilege_receive2)
-            vip_privilege_receive3 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=3)
-            print(vip_privilege_receive3)
-            vip_privilege_receive4 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=4)
-            print(vip_privilege_receive4)
-            vip_privilege_receive5 = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=5)
-            print(vip_privilege_receive5)
+            vip_privilege_my_ret = self.vip_privilege_my(session=session)
+            welfare_list = vip_privilege_my_ret.get("data", {}).get("list",[])
+            for welfare in welfare_list:
+                if welfare.get("state") == 0 and welfare.get("vip_type") == vip_type:
+                    vip_privilege_receive_ret = self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=welfare.get("type"))
+                    print(vip_privilege_receive_ret) # 取消本段输出
             reward_ret = self.reward(session=session)
             # print(reward_ret) # 取消本段输出
             coins_av_count = reward_ret.get("data", {}).get("coins") // 10
