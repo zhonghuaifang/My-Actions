@@ -319,6 +319,7 @@ class BiliBiliCheckIn(object):
                     mid = following.get("mid")
                     if mid:
                         aid_list += self.space_arc_search(session=session, uid=mid)
+            print(aid_list)
             if coin_num > 0:
                 for aid in aid_list[::-1]:
                     # print(f'成功给{aid.get("title")}投一个币')
