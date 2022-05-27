@@ -280,7 +280,7 @@ class BiliBiliCheckIn(object):
             aid_list = self.get_region(session=session)
             reward_ret = self.reward(session=session)
             # print(reward_ret) # 取消本段输出
-            coins_av_count = reward_ret.get("data", {}).get("coins_av") // 10
+            coins_av_count = reward_ret.get("data", {}).get("coins") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
             print(coin_num)
@@ -343,9 +343,9 @@ class BiliBiliCheckIn(object):
             # print(uname, uid, is_login, new_coin, vip_type, new_current_exp)
             reward_ret = self.reward(session=session)
             login = reward_ret.get("data", {}).get("login")
-            watch_av = reward_ret.get("data", {}).get("watch_av")
-            coins_av = reward_ret.get("data", {}).get("coins_av", 0)
-            share_av = reward_ret.get("data", {}).get("share_av")
+            watch_av = reward_ret.get("data", {}).get("watch")
+            coins_av = reward_ret.get("data", {}).get("coins", 0)
+            share_av = reward_ret.get("data", {}).get("share")
             today_exp = len([one for one in [login, watch_av, share_av] if one]) * 5
             today_exp += coins_av
             update_data = (28800 - new_current_exp) // (today_exp if today_exp else 1)
