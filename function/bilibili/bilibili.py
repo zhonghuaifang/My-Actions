@@ -94,6 +94,14 @@ class BiliBiliCheckIn(object):
         """
         url = "https://api.bilibili.com/x/vip/privilege/receive"
         post_data = {"type": receive_type, "csrf": bili_jct}
+        session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
+                "Referer": "https://account.bilibili.com",
+                "Connection": "keep-alive",
+                "sec-fetch-mode": "cors",
+            }
+        )
         ret = session.post(url=url, data=post_data).json()
         return ret
 
@@ -273,7 +281,7 @@ class BiliBiliCheckIn(object):
         session.headers.update(
             {
                 "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
-                "Referer": "https://www.bilibili.com/",
+                "Referer": "https://account.bilibili.com",
                 "Connection": "keep-alive",
             }
         )
@@ -286,9 +294,10 @@ class BiliBiliCheckIn(object):
             live_msg = self.live_sign(session=session)
             print(live_msg)
             aid_list = self.get_region(session=session)
-            coin_today_exp_ret = self.coin_today_exp(session=session)
-            print(coin_today_exp_ret) # 取消本段输出
-            coins_av_count = coin_today_exp_ret.get("data") // 10
+            self.vip_privilege_receive(session=session,bili_jct=bili_jct,receive_type=3)
+            reward_ret = self.reward(session=session)
+            print(reward_ret) # 取消本段输出
+            coins_av_count = reward_ret.get("data", {}).get("coins") // 10
             coin_num = coin_num - coins_av_count
             coin_num = coin_num if coin_num < coin else coin
             print(coin_num)
