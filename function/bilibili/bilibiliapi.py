@@ -18,6 +18,7 @@ banner = r"""
         \/         \/                               哔哩哔哩 (゜-゜)つロ 干杯~
 """
 
+import requests
 import base64
 import chardet
 import functools
@@ -26,7 +27,6 @@ import json
 import os
 import platform
 import random
-import requests
 import rsa
 import shutil
 import subprocess
