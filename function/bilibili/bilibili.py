@@ -388,6 +388,9 @@ class BiliBiliCheckIn(object):
             if SEND_KEY == '':
                 sendNotify.send(title = u"哔哩哔哩签到",msg = msg)
             msg_list.append(msg)
+        else:
+            if SEND_KEY == '':
+                sendNotify.send(title = u"哔哩哔哩签到",msg = "cookie已过期，请更新")
         return msg_list
 
 
@@ -398,28 +401,14 @@ if __name__ == "__main__":
             print("未填写哔哩哔哩账号密码或COOKIE取消运行")
             exit(0)
 
-    is_login = False
-    if BILI_COOKIE != "":
-        _bilibili_cookie_list = {cookie.split('=')[0]:cookie.split('=')[-1] for cookie in BILI_COOKIE.split(';')}
-        session = requests.session()
-        requests.utils.add_dict_to_cookiejar(session.cookies, _bilibili_cookie_list)
-        session.headers.update(
-            {
-                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
-                "Referer": "https://account.bilibili.com",
-                "Connection": "keep-alive",
-            }
-        )
-        url = "https://api.bilibili.com/x/web-interface/nav"
-        ret = session.get(url=url).json()
-        is_login = ret.get("data", {}).get("isLogin")
-
-    if is_login == False and (os.environ['BILI_USER'] != "" and os.environ['BILI_PASS'] != ""):
+    if BILI_COOKIE == "":
         b = Bilibili()
         login = b.login(username=os.environ['BILI_USER'], password=os.environ['BILI_PASS'])
         if login == False:
             sendNotify.send(title = u"哔哩哔哩签到", msg = "登录失败 账号或密码错误，详情前往Github查看")
             exit(0)
         _bilibili_cookie_list = b.get_cookies()
+    else:
+        _bilibili_cookie_list = {cookie.split('=')[0]:cookie.split('=')[-1] for cookie in BILI_COOKIE.split(';')}
 
     BiliBiliCheckIn(bilibili_cookie_list=_bilibili_cookie_list).main()
