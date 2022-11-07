@@ -7,15 +7,15 @@ on:
     # 表达式生成  https://crontab.guru/
     - cron: '0 */24 * * *'
     
-    #inputs:
-    #  days:
-    #    description: 'Number of days.'
-    #    required: true
-    #    default: 0
-    #  minimum_runs:
-    #    description: 'The minimum runs to keep for each workflow.'
-    #    required: true
-    #    default: 3
+  inputs:
+   days:
+     description: 'Number of days.'
+     required: true
+     default: 0
+   minimum_runs:
+     description: 'The minimum runs to keep for each workflow.'
+     required: true
+     default: 3
 
 jobs:
   del_runs:
