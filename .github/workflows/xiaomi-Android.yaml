@@ -3,14 +3,11 @@ name: 小米自动刷步数-Android
 on:
   workflow_dispatch:
   schedule:
-    - cron: '05 20 * * *'
-  watch:
-    types: [started]
+    - cron: '05 20 * * 
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout
         uses: actions/checkout@v2
