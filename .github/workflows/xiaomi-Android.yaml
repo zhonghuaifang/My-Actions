@@ -3,7 +3,7 @@ name: 小米自动刷步数-Android
 on:
   workflow_dispatch:
   schedule:
-    - cron: '05 20 * * 
+    cron: '05 20 * * *'
 
 jobs:
   build:
