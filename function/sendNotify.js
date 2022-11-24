@@ -13,9 +13,6 @@ const timeout = 15000;//超时时间(单位毫秒)
 //gobot_token 填写在go-cqhttp文件设置的访问密钥
 //gobot_qq 填写推送到个人QQ或者QQ群号
 //go-cqhttp相关API https://docs.go-cqhttp.org/api
-// let GOBOT_URL = 'http://cqhttp.huaifang.top/send_private_msg'; // 推送到个人QQ: http://127.0.0.1/send_private_msg  群：http://127.0.0.1/send_group_msg 
-// let GOBOT_TOKEN = 'AwWCbD_1zZNZTlJ'; //访问密钥
-// let GOBOT_QQ = 'user_id=1459550455'; // 如果GOBOT_URL设置 /send_private_msg 则需要填入 user_id=个人QQ 相反如果是 /send_group_msg 则需要填入 group_id=QQ群 
 let GOBOT_URL = '';
 let GOBOT_TOKEN = '';
 let GOBOT_QQ = '';
