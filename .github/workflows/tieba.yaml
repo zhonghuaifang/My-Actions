@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 10.x
       - name: npm install
