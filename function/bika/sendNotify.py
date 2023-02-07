@@ -321,7 +321,7 @@ class sendNotify:
             url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&group_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
         else:
             url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&user_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
-
+        print(url)
         try:
             response = requests.get(url, timeout=15)
             try:
