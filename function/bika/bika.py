@@ -17,7 +17,7 @@ pica_api_host = "picaapi.picacomic.com"
 pica_api_base_url = "https://%s/" % pica_api_host
 sign_in_path = "auth/sign-in"
 punch_in_path = "users/punch-in"
-profile_path = "/users/profile"
+profile_path = "users/profile"
 POST = "POST"
 GET = "GET"
 
@@ -101,13 +101,12 @@ if __name__ == '__main__':
     profile_msg = ''
     profile_response = profile(current_token)
     print(profile_response)
-    if profile_response["code"] == "200":
-        profile_result = profile_response["data"]["user"]
-        profile_msg = (
-            "\n用户名: %s" % profile_result["name"],
-            "\n等级: %s" % profile_result["level"],
-            "\n经验: %s" % profile_result["exp"],
-        )
+    profile_result = profile_response["data"]["user"]
+    profile_msg = (
+        "\n用户名: %s" % profile_result["name"],
+        "\n等级: %s" % profile_result["level"],
+        "\n经验: %s" % profile_result["exp"],
+    )
 
 if SEND_KEY == '':
     sendNotify.send(title=u"哔咔漫画自动打哔咔", msg="【哔咔漫画自动签到】\n" + msg+profile_msg)
