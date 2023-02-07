@@ -100,6 +100,7 @@ if __name__ == '__main__':
 
     profile_msg = ''
     profile_response = profile(current_token)
+    print(profile_response)
     if profile_response["code"] == "200":
         profile_result = profile_response["data"]["user"]
         profile_msg = (
