@@ -181,7 +181,7 @@ function gobotNotify(text, desp, time = 2100) {
   return new Promise((resolve) => {
     if (GOBOT_URL) {
       const options = {
-        url: `${GOBOT_URL}?access_token=${GOBOT_TOKEN}&${GOBOT_QQ}`,
+        url: `${GOBOT_URL}?access_token=${GOBOT_TOKEN}&${GOBOT_URL.indexOf("/send_group_msg") !== -1?'group_id=':'user_id='}${GOBOT_QQ}`,
         json: {message:`${text}\n${desp}`},
         headers: {
           'Content-Type': 'application/json',

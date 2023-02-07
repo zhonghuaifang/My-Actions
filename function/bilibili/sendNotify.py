@@ -136,7 +136,8 @@ class sendNotify:
                 'text': text,
                 'desp': desp
             }
-            response = json.dumps(requests.post(url, data).json(), ensure_ascii=False)
+            response = json.dumps(requests.post(
+                url, data).json(), ensure_ascii=False)
             datas = json.loads(response)
             # print(datas)
             if datas['code'] == 0:
@@ -154,7 +155,8 @@ class sendNotify:
             url = sendNotify.BARK_PUSH + '/' + urllib.parse.quote(text) + '/' + urllib.parse.quote(
                 desp) + '?sound=' + sendNotify.BARK_SOUND
             headers = {'Content-type': "application/x-www-form-urlencoded"}
-            response = json.dumps(requests.get(url, headers=headers).json(), ensure_ascii=False)
+            response = json.dumps(requests.get(
+                url, headers=headers).json(), ensure_ascii=False)
             data = json.loads(response)
             # print(data)
             if data['code'] == 400:
@@ -175,7 +177,8 @@ class sendNotify:
             headers = {'Content-type': "application/x-www-form-urlencoded"}
             body = 'chat_id=' + sendNotify.TG_USER_ID + '&text=' + urllib.parse.quote(
                 text) + '\n\n' + urllib.parse.quote(desp) + '&disable_web_page_preview=true'
-            response = json.dumps(requests.post(url, data=body, headers=headers).json(), ensure_ascii=False)
+            response = json.dumps(requests.post(
+                url, data=body, headers=headers).json(), ensure_ascii=False)
 
             data = json.loads(response)
             if data['ok']:
@@ -209,11 +212,14 @@ class sendNotify:
                 secret_enc = secret.encode('utf-8')
                 string_to_sign = '{}\n{}'.format(timestamp, secret)
                 string_to_sign_enc = string_to_sign.encode('utf-8')
-                hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+                hmac_code = hmac.new(
+                    secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
                 sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
-                url = 'https://oapi.dingtalk.com/robot/send?access_token=' + sendNotify.DD_BOT_TOKEN + '&timestamp=' + timestamp + '&sign=' + sign
+                url = 'https://oapi.dingtalk.com/robot/send?access_token=' + \
+                    sendNotify.DD_BOT_TOKEN + '&timestamp=' + timestamp + '&sign=' + sign
 
-            response = requests.post(url=url, data=json.dumps(data), headers=headers).text
+            response = requests.post(
+                url=url, data=json.dumps(data), headers=headers).text
             if json.loads(response)['errcode'] == 0:
                 print('\n钉钉发送通知消息成功\n')
             else:
@@ -258,7 +264,8 @@ class sendNotify:
                 }
             body = json.dumps(data).encode(encoding='utf-8')
             headers = {'Content-Type': 'application/json'}
-            response = json.dumps(requests.post(url, data=body, headers=headers).json(), ensure_ascii=False)
+            response = json.dumps(requests.post(
+                url, data=body, headers=headers).json(), ensure_ascii=False)
             datas = json.loads(response)
             if datas['code'] == 200:
                 print('\npush+发送通知消息成功\n')
@@ -275,14 +282,16 @@ class sendNotify:
         if sendNotify.QYWX_AM != '':
             # 获得access_token
             url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
-            token_param = '?corpid=' + sendNotify.QYWX_AM.split(',')[0] + '&corpsecret=' + sendNotify.QYWX_AM.split(',')[1]
+            token_param = '?corpid=' + \
+                sendNotify.QYWX_AM.split(
+                    ',')[0] + '&corpsecret=' + sendNotify.QYWX_AM.split(',')[1]
             token_data = requests.get(url + token_param)
             token_data.encoding = 'utf-8'
             token_data = token_data.json()
             access_token = token_data['access_token']
-            #发送内容
+            # 发送内容
             content = desp
-            #创建要发送的消息
+            # 创建要发送的消息
             data = {
                 "touser": sendNotify.QYWX_AM.split(',')[2],
                 "msgtype": "text",
@@ -308,7 +317,10 @@ class sendNotify:
             return
         print("go-cqhttp 服务启动")
 
-        url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&{sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
+        if '/send_group_msg' in sendNotify.GOBOT_URL:
+            url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&group_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
+        else:
+            url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&user_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
 
         try:
             response = requests.get(url, timeout=15)
