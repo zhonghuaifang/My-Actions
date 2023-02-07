@@ -307,8 +307,11 @@ class sendNotify:
             print("go-cqhttp 服务的 GOBOT_URL 或 GOBOT_QQ 或 GOBOT_TOKEN 未设置!!\n取消推送")
             return
         print("go-cqhttp 服务启动")
-
-        url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&{sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
+        
+        if '/send_group_msg' in sendNotify.GOBOT_URL:
+            url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&group_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
+        else:
+            url = f'{sendNotify.GOBOT_URL}?access_token={sendNotify.GOBOT_TOKEN}&user_id={sendNotify.GOBOT_QQ}&message=标题:{title}\n内容:{content}'
 
         try:
             response = requests.get(url, timeout=15)
